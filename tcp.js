@@ -8,15 +8,16 @@ module.exports.createClient = function (port, host) {
     });
     
     connection.on("error", function (err) {
-        console.log(err.code);
-    });
+            console.log(err.code);
+        });
 
     connection.on("data", function (data) {
-        console.log(data.toString());
+            console.log("response------------------:");
+            console.log(data.toString());
     });
 
     connection.on("close", function () {
-        console.log("connection closed");
+            console.log("connection closed");
     });
     
     return connection;
