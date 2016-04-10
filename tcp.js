@@ -1,7 +1,9 @@
 var net = require("net");
 
+var connection = null;
+
 module.exports.createClient = function (port, host) {
-    var connection = net.createConnection(port, host, function (conn) {
+    connection = net.createConnection(port, host, function (conn) {
         console.log("connected to redis server");
     });
     
@@ -19,4 +21,8 @@ module.exports.createClient = function (port, host) {
     
     return connection;
 }
+
+module.exports.getConnection = function () {
+    return connection;
+};
 
