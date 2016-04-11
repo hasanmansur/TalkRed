@@ -14,17 +14,14 @@ RESPClient.prototype.createClient = function (port, host) {
 }
 
 RESPClient.prototype.set = function (key, val) {
-    var x = writer.set(key, val);
-    connection.write(x, function () {
-        console.log("request------------------:");
-        console.log(x);
+    writer.set(key, val, function (req) {
+        connection.write(req);
     });
 }
 
 RESPClient.prototype.close = function () {
     connection.end();
 }
-
 
 //exports
 module.exports = new RESPClient();
