@@ -1,14 +1,11 @@
 var wrapper = require("./wrapper");
+var commands = require("./commands");
 
 function writer () {
 }
 
 writer.prototype.set = function (key, val, callback) {
-    var commandPrefix = "SET";
-    var lengthCommandPrefix = commandPrefix.length;
-    var lengthKey = key.length;
-    var lengthVal = val.length;
-    var req = wrapper.wrap(commandPrefix, lengthCommandPrefix, lengthKey, lengthVal, key, val);
+    var req = wrapper.wrap(commands.SET, commands.SET.length, key.length, val.length, key, val);
     callback(req);
 }
 

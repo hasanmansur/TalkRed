@@ -1,12 +1,14 @@
+var message = require("./message");
+
 function wrapper () {
 
 }
 
-wrapper.prototype.wrap = function (commandPrefix, lengthCommandPrefix, lengthKey, lengthVal, key, val) {
+wrapper.prototype.wrap = function (command, lengthCommand, lengthKey, lengthVal, key, val) {
     var req = "*3\r\n$"
-                +lengthCommandPrefix
+                +lengthCommand
                 +"\r\n" 
-                +commandPrefix
+                +command
                 +"\r\n$"
                 +lengthKey
                 +"\r\n"
