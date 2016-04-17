@@ -4,7 +4,7 @@ function wrapper () {
 
 }
 
-wrapper.prototype.wrap = function (command, lengthCommand, lengthKey, lengthVal, key, val) {
+wrapper.prototype.wrap = function (command, lengthCommand, lengthKey, lengthVal, key, val, cb) {
     var req = "*3\r\n$"
                 +lengthCommand
                 +"\r\n" 
@@ -18,7 +18,7 @@ wrapper.prototype.wrap = function (command, lengthCommand, lengthKey, lengthVal,
                 +"\r\n"
                 + val
                 +"\r\n";
-     return req;
+     cb(req);
 }
 
 module.exports = new wrapper();
