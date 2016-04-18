@@ -5,3 +5,4 @@ module.exports.STAR      = "*";
 module.exports.COLON     = ":";
 module.exports.CR        = "\r";
 module.exports.LF        = "\n";
+module.exports.CRLF      = "\r\n";
