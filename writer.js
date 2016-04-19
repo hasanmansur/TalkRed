@@ -10,6 +10,12 @@ writer.prototype.set = function (key, val, cb) {
     }); 
 }
 
+writer.prototype.get = function (key, cb) {
+    wrapper.wrap(commands.GET, key, function (req) {
+        cb(req);
+    });
+}
+
 module.exports = new writer();
 
 

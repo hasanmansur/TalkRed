@@ -25,6 +25,11 @@ RESPClient.prototype.createClient = function (port, host) {
     });
 }
 
+RESPClient.prototype.close = function () {
+    connection.end();
+}
+
+//commands
 RESPClient.prototype.set = function (key, val) {
     writer.set(key, val, function (req) {
         connection.write(req, function () {
@@ -34,8 +39,13 @@ RESPClient.prototype.set = function (key, val) {
     });
 }
 
-RESPClient.prototype.close = function () {
-    connection.end();
+RESPClient.prototype.get = function (key) {
+    writer.get(key, function (req) {
+        connection.write(req, function () {
+            console.log("----------------------request------------------:");
+            console.log(req);
+        });
+    });
 }
 
 //exports

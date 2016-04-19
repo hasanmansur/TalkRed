@@ -9,4 +9,5 @@ resp.set("id", "1");
 resp.set("mob", "01711080668");
 resp.set("addr", "baridhara, dhaka-1212");
 resp.set("email", "hasan@hasan.com");
+resp.get("email");
 resp.close();

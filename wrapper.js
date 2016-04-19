@@ -3,18 +3,19 @@ var message = require("./message");
 function wrapper () {
 }
 
-wrapper.prototype.wrap = function (command, key, val, cb) {
-    this.createArray(command, key, val, function (req) {
+wrapper.prototype.wrap = function () {
+    var cb = arguments[arguments.length-1];
+    this.createArray(arguments, function (req) {
         cb(req);
     });
 }
 
 wrapper.prototype.createArray = function () {
     var req = "";
-    for (var i=0; i<arguments.length-1; i++) {
-        req += this.createBulkString(arguments[i]); 
+    for (var i=0; i<arguments[0].length-1; i++) {
+        req += this.createBulkString(arguments[0][i]); 
     }
-    req = message.STAR + (arguments.length-1).toString() + message.CRLF + req;
+    req = message.STAR + (arguments[0].length-1).toString() + message.CRLF + req;
     arguments[arguments.length-1](req);
 }
 
