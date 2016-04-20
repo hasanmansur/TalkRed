@@ -31,11 +31,12 @@ wrapper.prototype.createArray = function () {
             req += this.createBulkString(optionsArray[i]);
         }
     }
-    req = message.STAR + arraySize.toString() + message.CRLF + req;
+    req = message.STAR + arraySize + message.CRLF + req;
     arguments[arguments.length-1](req);
 }
 
-wrapper.prototype.createBulkString = function (str) {
+wrapper.prototype.createBulkString = function (item) {
+    var str = item.toString();
     return message.DOLLAR + str.length + message.CRLF + str + message.CRLF
 }
 

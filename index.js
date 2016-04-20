@@ -4,5 +4,5 @@ var host = "localhost";
 var port = 6379;
 
 resp.createClient(port, host);
-resp.set("myname", "hasan");
+resp.set("0");
 resp.close();

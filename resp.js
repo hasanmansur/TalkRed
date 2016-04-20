@@ -31,6 +31,10 @@ RESPClient.prototype.close = function () {
 
 //commands
 RESPClient.prototype.set = function (key, val, options) {
+    if (typeof key === "undefined" || typeof val === "undefined") {
+        console.log("both key value required");
+        return;
+    }
     writer.set(key, val, options, function (req) {
         connection.write(req, function () {
             console.log("----------------------request------------------:");
