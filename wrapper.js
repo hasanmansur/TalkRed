@@ -11,14 +11,6 @@ wrapper.prototype.wrap = function () {
 }
 
 wrapper.prototype.createArray = function () {
-    /*
-    var req = "";
-    for (var i=0; i<arguments[0].length-1; i++) {
-        req += this.createBulkString(arguments[0][i]); 
-    }
-    req = message.STAR + (arguments[0].length-1).toString() + message.CRLF + req;
-    arguments[arguments.length-1](req);
-    */
     var req = "";
     var arraySize = arguments[0].length-2;
     for (var i=0; i<arraySize; i++) {
@@ -41,3 +33,12 @@ wrapper.prototype.createBulkString = function (item) {
 }
 
 module.exports = new wrapper();
+
+/*
+    var req = "";
+    for (var i=0; i<arguments[0].length-1; i++) {
+        req += this.createBulkString(arguments[0][i]); 
+    }
+    req = message.STAR + (arguments[0].length-1).toString() + message.CRLF + req;
+    arguments[arguments.length-1](req);
+    */

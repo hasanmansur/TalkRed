@@ -29,7 +29,8 @@ RESPClient.prototype.close = function () {
     connection.end();
 }
 
-//commands
+
+//string commands
 RESPClient.prototype.set = function (key, val, options) {
     if (typeof key === "undefined" || typeof val === "undefined") {
         console.log("both key value required");
@@ -43,8 +44,8 @@ RESPClient.prototype.set = function (key, val, options) {
     });
 }
 
-RESPClient.prototype.get = function (key) {
-    writer.get(key, function (req) {
+RESPClient.prototype.get = function (key, options) {
+    writer.get(key, options, function (req) {
         connection.write(req, function () {
             console.log("----------------------request------------------:");
             console.log(req);
