@@ -30,8 +30,8 @@ RESPClient.prototype.close = function () {
 }
 
 //commands
-RESPClient.prototype.set = function (key, val) {
-    writer.set(key, val, function (req) {
+RESPClient.prototype.set = function (key, val, options) {
+    writer.set(key, val, options, function (req) {
         connection.write(req, function () {
             console.log("----------------------request------------------:");
             console.log(req);

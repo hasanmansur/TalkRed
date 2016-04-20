@@ -4,8 +4,8 @@ var commands = require("./commands");
 function writer () {
 }
 
-writer.prototype.set = function (key, val, cb) {
-    wrapper.wrap(commands.SET, key, val, function (req) {
+writer.prototype.set = function (key, val, options, cb) {
+    wrapper.wrap(commands.SET, key, val, options, function (req) {
         cb(req);
     });
 }
