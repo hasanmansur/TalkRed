@@ -1,6 +1,8 @@
 var tcp = require("./tcp");
 var writer = require("./writer");
 var reader = require("./reader");
+var utils = require("./utils");
+var validator = require("./validator");
 
 var connection;
 
@@ -32,25 +34,33 @@ RESPClient.prototype.close = function () {
 
 //string commands
 RESPClient.prototype.set = function (key, val, options) {
-    if (typeof key === "undefined" || typeof val === "undefined") {
-        console.log("both key value required");
-        return;
-    }
-    writer.set(key, val, options, function (req) {
-        connection.write(req, function () {
-            console.log("----------------------request------------------:");
-            console.log(req);
-        });
-    });
+    validator.validate_set(key, val, options, function (err) {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            writer.set(key, val, options, function (req) {
+                connection.write(req, function () {
+                    utils.printRequest(req);
+                });
+            });
+        }
+    });   
 }
 
 RESPClient.prototype.get = function (key, options) {
-    writer.get(key, options, function (req) {
-        connection.write(req, function () {
-            console.log("----------------------request------------------:");
-            console.log(req);
-        });
-    });
+    validator.validate_get(key, options, function (err) {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            writer.get(key, options, function (req) {
+                connection.write(req, function () {
+                    utils.printRequest(req);
+                });
+            });
+        }
+    });  
 }
 
 //exports
