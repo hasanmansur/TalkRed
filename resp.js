@@ -35,8 +35,8 @@ RESPClient.prototype.close = function () {
 //string commands
 RESPClient.prototype.set = function (key, val, options) {
     validator.validate_set(key, val, options, function (err) {
-        if (err) {
-            console.log(err);
+        if (err.status) {
+            console.log(err.message);
         }
         else {
             writer.set(key, val, options, function (req) {
