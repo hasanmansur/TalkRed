@@ -12,7 +12,7 @@ validator.prototype.validate_set = function (key, val, options, cb) {
     cb(err);
 }
 
-validator.prototype.validate_get = function () {
+validator.prototype.validate_get = function (key, options, cb) {
     var err = false;
     if (typeof key === "undefined") {
         err = true;
