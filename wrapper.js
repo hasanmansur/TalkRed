@@ -1,4 +1,4 @@
-var message = require("./message");
+var message = require("./delimiter");
 
 function wrapper () {
 }
