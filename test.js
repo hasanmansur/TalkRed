@@ -1,8 +1,9 @@
-var resp = require("./resp");
+var resp = require("./lib");
 
 var host = "localhost";
 var port = 6379;
 
 resp.createClient(port, host);
-resp.set("1", "0", "fsd");
+resp.set("name", "mansur");
+resp.get("name");
 resp.close();
