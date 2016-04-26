@@ -3,7 +3,10 @@ A minimalistic NodeJS client for [Redis] (http://redis.io/). It is a client side
 
 Feature
 -------
-As for now TalkRed only features Redis command base instructions. Please find the complete command reference [here] (http://redis.io/commands)
+As for now TalkRed only features Redis command base instructions.
+List of implemented commands is [here] (https://github.com/hasanmansur/TalkRed/blob/modularized_client_stack/COMMANDS.md).
+Please find the complete command reference [here] (http://redis.io/commands).
+
 
 Usage
 -----
