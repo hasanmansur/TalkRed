@@ -28,6 +28,7 @@ resp.close();
 
 Future Plan
 -----------
+* Response Parser
 * Pipelining
 * Pub/Sub
 * CLI tool
