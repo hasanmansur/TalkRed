@@ -28,7 +28,7 @@ resp.close();
 
 Future Plan
 -----------
-* Response Parser
+* Response Parser (currently response is printed in serialized format)
 * Pipelining
 * Pub/Sub
 * CLI tool

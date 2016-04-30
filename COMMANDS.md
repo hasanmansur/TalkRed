@@ -6,7 +6,7 @@ String Commands
 * GET
 * SET
 * GETRANGE
-* GETSET
+* APPEND
 
 Key Commands
 ------------

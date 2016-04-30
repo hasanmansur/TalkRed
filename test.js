@@ -7,4 +7,6 @@ resp.createClient(port, host);
 resp.SET("name", "mansur");
 resp.GET("name");
 resp.GETRANGE("name", ["0", "2"]);
+resp.APPEND("name", "hasan");
+resp.GET("name");
 resp.close();
